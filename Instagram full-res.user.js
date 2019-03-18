@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         Instagram full-res
 // @namespace    http://stc.com/
-// @version      0.1
+// @version      0.2
 // @description  try to take over the world!
 // @author       Stelard Actek
 // @match        https://www.instagram.com/p/*
+// @downloadURL  https://github.com/StelardActek/UserScripts/raw/master/Instagram%20full-res.user.js
 // @grant        none
 // ==/UserScript==
 
