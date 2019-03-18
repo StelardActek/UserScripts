@@ -4,7 +4,8 @@
 // @include     https://twitter.com/*
 // @include     http://twitter.com/*
 // @version     1
-// @grant          GM_addStyle
+// @downloadURL https://github.com/StelardActek/UserScripts/raw/master/Twitter%20Gallery%20Saveable.user.js
+// @grant       GM_addStyle
 // ==/UserScript==
 
 (function() {
