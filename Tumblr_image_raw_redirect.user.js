@@ -4,8 +4,7 @@
 // @include     http://*.media.tumblr.com/*
 // @include     https://*.media.tumblr.com/*
 // @version     3
-// @downloadURL  https://www.dropbox.com/s/rgxjcdc7pm67mqq/Tumblr_image_raw_redirect.user.js?raw=1
-// @updateURL    https://www.dropbox.com/s/rgxjcdc7pm67mqq/Tumblr_image_raw_redirect.user.js?raw=1
+// @downloadURL https://github.com/StelardActek/UserScripts/raw/master/Tumblr_image_raw_redirect.user.js
 // @grant       none
 // @run-at      document-start
 // ==/UserScript==
