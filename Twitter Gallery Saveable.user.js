@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        Twitter Gallery Saveable
-// @namespace   http://steltechcor.com/
+// @namespace   http://stc.com/
 // @include     https://twitter.com/*
 // @include     http://twitter.com/*
 // @version     1
