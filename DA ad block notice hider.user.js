@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        DA ad block notice hider
-// @namespace   http://steltechcor.com/
+// @namespace   http://stc.com/
 // @include     http://*.deviantart.com/*
 // @version     1
 // @grant       GM_addStyle
