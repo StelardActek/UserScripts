@@ -1,12 +1,11 @@
 // ==UserScript==
 // @name         Picarto Nice Emoticons
 // @namespace    http://stc.com/
-// @version      1.3
+// @version      1.4
 // @description  Replaces emoticon strings of your chosing with your custom emotes
 // @author       Stelard Actek
 // @match        https://picarto.tv/*
-// @downloadURL  https://www.dropbox.com/s/kxpu301xgidlwx8/Picarto%20Nice%20Emoticons.user.js?raw=1
-// @updateURL    https://www.dropbox.com/s/kxpu301xgidlwx8/Picarto%20Nice%20Emoticons.user.js?raw=1
+// @downloadURL  https://github.com/StelardActek/UserScripts/raw/master/Picarto%20Nice%20Emoticons.user.js
 // @grant        none
 // ==/UserScript==
 /* jshint -W097 */
