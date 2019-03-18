@@ -4,6 +4,8 @@
 // @description    Forces Pixiv to display full size images without extra clicks
 // @include        /^https?://www\.pixiv\.net/member_illust.php.*/
 // @require        http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js
+// @version        0.0
+// @downloadURL    https://github.com/StelardActek/UserScripts/raw/master/Pixiv%20Full%20Size%20Images.user.js
 // @grant          GM_addStyle
 // @grant          GM_getResourceText
 // ==/UserScript==
