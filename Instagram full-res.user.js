@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Instagram full-res
-// @namespace    http://tampermonkey.net/
+// @namespace    http://stc.com/
 // @version      0.1
 // @description  try to take over the world!
 // @author       Stelard Actek
