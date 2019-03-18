@@ -5,8 +5,7 @@
 // @description  Skip the 'you are leaving picarto' warning
 // @author       Stelard Actek
 // @match        https://picarto.tv/*
-// @downloadURL  https://www.dropbox.com/s/tezp2sss6tovtrk/Picarto%20no-redirect%20warning.user.js?raw=1
-// @updateURL    https://www.dropbox.com/s/tezp2sss6tovtrk/Picarto%20no-redirect%20warning.user.js?raw=1
+// @downloadURL  https://github.com/StelardActek/UserScripts/raw/master/Picarto%20no-redirect%20warning.user.js
 // @grant        none
 // ==/UserScript==
 
