@@ -10,6 +10,7 @@
 // @grant        GM_xmlhttpRequest
 // @grant        GM_addStyle
 // @run-at       document-idle
+// @download     https://github.com/StelardActek/UserScripts/raw/master/Instagram%20image%20direct%20download.user.js
 // @resource     download24 https://github.com/StelardActek/UserScripts/raw/master/media/download24.png
 // @require      https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js
 // @connect      cdninstagram.com
