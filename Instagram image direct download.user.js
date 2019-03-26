@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name         Instagram image direct download
 // @namespace    http://stc.com/
-// @version      0.3
+// @version      0.4
 // @description  Adds a direct download button to Twitter images that grabs the :orig file.
 // @author       Stelard Actek
-// @match        https://www.instagram.com/*
-// @include      https://instagram.com/*
+// @match        https://www.instagram.com/p/*
+// @include      https://instagram.com/p/*
 // @grant        GM_getResourceURL
 // @grant        GM_xmlhttpRequest
 // @grant        GM_addStyle
