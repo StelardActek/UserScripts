@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Twitter image direct download
 // @namespace    http://stc.com/
-// @version      0.1
+// @version      0.2
 // @description  Adds a direct download button to Twitter images that grabs the :orig file.
 // @author       Stelard Actek
 // @match        https://twitter.com/*
@@ -9,6 +9,7 @@
 // @grant        GM_xmlhttpRequest
 // @grant        GM_addStyle
 // @run-at       document-idle
+// @downloadURL  https://github.com/StelardActek/UserScripts/raw/master/Twitter%20image%20direct%20download.user.js
 // @resource     download24 https://github.com/StelardActek/UserScripts/raw/master/download24.png
 // @require      https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js
 // @connect      twimg.com
