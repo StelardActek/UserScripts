@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Twitter (Apr 2019) image direct download
 // @namespace    http://stc.com/
-// @version      0.1
+// @version      0.2
 // @description  Adds a direct download button to Twitter images that grabs the :orig file.
 // @author       Stelard Actek
 // @match        https://twitter.com/*
@@ -51,7 +51,15 @@
 }
 `);
 
-    let urlRegex = /^(?<proto>[^:]+:)\/\/(?<host>[^\/]+)(?<path>[^\?]*)(?:\?(?<params>[^#]*)+)?/;
+    /// Firefox doesn't support named capture groups yet
+    //let urlRegex = /^(?<proto>[^:]+:)\/\/(?<host>[^\/]+)(?<path>[^\?]*)(?:\?(?<params>[^#]*)+)?/;
+    let urlRegex = /^([^:]+:)\/\/([^\/]+)([^\?]*)(?:\?([^#]*)+)?/;
+    let urlRegexIdx = {
+        proto: 1,
+        host: 2,
+        path: 3,
+        params: 4
+    };
 
     let getFilename = (url) => {
         return url.slice(url.lastIndexOf('/') + 1);
@@ -103,10 +111,10 @@
                     if (imgNodes && imgNodes[0]) {
                         let m = imgNodes[0].src.match(urlRegex);
 
-                        path = m.groups.path;
-
                         if (m) {
-                            let params = m.groups.params.split('&');
+                            path = m[urlRegexIdx.path];
+
+                            let params = m[urlRegexIdx.params].split('&');
                             params = params.map(param => {
                                 let [key, value] = param.split('=');
 
@@ -121,7 +129,7 @@
                                 }
                             });
 
-                            imgUrl = `${m.groups.proto}//${m.groups.host}${m.groups.path}?${params.join('&')}`;
+                            imgUrl = `${m[urlRegexIdx.proto]}//${m[urlRegexIdx.host]}${m[urlRegexIdx.path]}?${params.join('&')}`;
                         } else {
                             alert("Could not match image URL.");
                             return;
