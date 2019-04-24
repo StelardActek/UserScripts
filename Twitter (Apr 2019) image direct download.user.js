@@ -9,7 +9,7 @@
 // @grant        GM_xmlhttpRequest
 // @grant        GM_addStyle
 // @run-at       document-idle
-// @downloadURL  https://github.com/StelardActek/UserScripts/raw/master/Twitter%20image%20direct%20download.user.js
+// @downloadURL  https://github.com/StelardActek/UserScripts/raw/master/Twitter%20(Apr%202019)%20image%20direct%20download.user.js
 // @resource     download24 https://github.com/StelardActek/UserScripts/raw/master/media/download24.png
 // @require      https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js
 // @connect      twimg.com
