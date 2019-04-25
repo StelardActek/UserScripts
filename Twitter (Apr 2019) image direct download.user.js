@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Twitter (Apr 2019) image direct download
 // @namespace    http://stc.com/
-// @version      0.3
+// @version      0.4
 // @description  Adds a direct download button to Twitter images that grabs the :orig file.
 // @author       Stelard Actek
 // @match        https://twitter.com/*
@@ -91,13 +91,10 @@
     let addTags = () => {
         console.log('Adding download tags...');
 
-        let containers = document.querySelectorAll('article[data-testid="tweetDetail"] div[aria-label="Image"]:not(.has-dlanchor)');
+        let containers = document.querySelectorAll('article div[aria-label="Image"]:not(.has-dlanchor)');
         if (containers && containers.length) {
             for (let container of containers) {
                 //console.log('found container', container);
-                if (container.style && container.style.margin) {
-                    container.style.margin = "";
-                }
 
                 let dlAnchor = document.createElement('button');
                 dlAnchor.className = 'dlAnchor';
@@ -158,7 +155,7 @@
                     return false;
                 });
 
-                container.append(dlAnchor);
+                container.parentNode.append(dlAnchor);
                 container.classList.add('has-dlanchor');
             }
         }
