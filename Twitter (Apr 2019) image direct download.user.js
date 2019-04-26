@@ -1,26 +1,43 @@
 // ==UserScript==
 // @name         Twitter (Apr 2019) image direct download
 // @namespace    http://stc.com/
-// @version      0.4
+// @version      0.5
 // @description  Adds a direct download button to Twitter images that grabs the :orig file.
 // @author       Stelard Actek
 // @match        https://twitter.com/*
-// @grant        GM_getResourceURL
-// @grant        GM_xmlhttpRequest
+// @grant        GM.getResourceUrl
+// @grant        GM.xmlHttpRequest
 // @grant        GM_addStyle
 // @run-at       document-start
-// @downloadURL  https://github.com/StelardActek/UserScripts/raw/master/Twitter%20(Apr%202019)%20image%20direct%20download.user.js
-// @resource     download24 https://github.com/StelardActek/UserScripts/raw/master/media/download24.png
+// @downloadURL  https://stelardactek.github.io/UserScripts/Twitter%20(Apr%202019)%20image%20direct%20download.user.js
+// @resource     download24 https://stelardactek.github.io/UserScripts/media/download24.png
 // @require      https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js
+// @require      https://greasemonkey.github.io/gm4-polyfill/gm4-polyfill.js
 // @connect      twimg.com
 // ==/UserScript==
 
-(function() {
+(async function() {
     'use strict';
 
-    GM_addStyle(`
+    const convertBlobToBase64 = (blob) => new Promise((resolve, reject) => {
+        const reader = new FileReader;
+        reader.onerror = reject;
+        reader.onload = () => {
+            resolve(reader.result);
+        };
+        reader.readAsDataURL(blob);
+    });
+  
+    let dlUrl = await GM.getResourceUrl("download24");
+  
+  	if (dlUrl.indexOf('blob:') == 0) {
+      let dlBlob = await fetch(dlUrl);
+      dlUrl = await convertBlobToBase64(await dlBlob.blob());
+    }
+  
+  	GM_addStyle(`
 .dlAnchor {
-  background-image: url("${GM_getResourceURL('download24')}");
+  background-image: url("${dlUrl}");
   width: 24px;
   height: 24px;
   position: absolute;
@@ -72,7 +89,7 @@
     let dl = (url, filename, stateChange) => {
         console.log('Downloading', url, 'as', filename);
         stateChange(true);
-        GM_xmlhttpRequest({
+        GM.xmlHttpRequest({
             method: 'GET',
             url: url,
             responseType: 'blob',
