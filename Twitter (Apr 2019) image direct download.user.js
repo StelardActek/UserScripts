@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Twitter (Apr 2019) image direct download
 // @namespace    http://stc.com/
-// @version      0.5
+// @version      0.6
 // @description  Adds a direct download button to Twitter images that grabs the :orig file.
 // @author       Stelard Actek
 // @match        https://twitter.com/*
@@ -27,14 +27,14 @@
         };
         reader.readAsDataURL(blob);
     });
-  
+
     let dlUrl = await GM.getResourceUrl("download24");
-  
+
   	if (dlUrl.indexOf('blob:') == 0) {
       let dlBlob = await fetch(dlUrl);
       dlUrl = await convertBlobToBase64(await dlBlob.blob());
     }
-  
+
   	GM_addStyle(`
 .dlAnchor {
   background-image: url("${dlUrl}");
@@ -108,7 +108,7 @@
     let addTags = () => {
         console.log('Adding download tags...');
 
-        let containers = document.querySelectorAll('article div[aria-label="Image"]:not(.has-dlanchor)');
+        let containers = document.querySelectorAll('article div[aria-label="Image"]:not(.has-dlanchor), div.AdaptiveMedia-photoContainer[data-image-url]:not(.has-dlanchor)');
         if (containers && containers.length) {
             for (let container of containers) {
                 //console.log('found container', container);
@@ -117,46 +117,56 @@
                 dlAnchor.className = 'dlAnchor';
                 dlAnchor.title = 'Download this image...';
                 dlAnchor.addEventListener('click', (ev) => {
-                    let imgNodes = container.querySelectorAll('img.css-9pa8cd');
+                    let dataImgUrl = container.getAttribute('data-image-url');
                     let imgUrl = null;
-                    let format = null;
-                    let path = null;
+                    let imgAs = null;
 
-                    if (imgNodes && imgNodes[0]) {
-                        let m = imgNodes[0].src.match(urlRegex);
+                    if (dataImgUrl) {
+                        imgUrl = dataImgUrl + ':orig';
+                        imgAs = getFilename(dataImgUrl)
+                    } else {
+                        let imgNodes = container.querySelectorAll('img.css-9pa8cd');
+                        let format = null;
+                        let path = null;
 
-                        if (m) {
-                            path = m[urlRegexIdx.path];
+                        if (imgNodes && imgNodes[0]) {
+                            let m = imgNodes[0].src.match(urlRegex);
 
-                            let params = m[urlRegexIdx.params].split('&');
-                            params = params.map(param => {
-                                let [key, value] = param.split('=');
+                            if (m) {
+                                path = m[urlRegexIdx.path];
 
-                                if (key == 'format') {
-                                    format = value;
-                                }
+                                let params = m[urlRegexIdx.params].split('&');
+                                params = params.map(param => {
+                                    let [key, value] = param.split('=');
 
-                                if (key == 'name') {
-                                    return `${key}=orig`;
-                                } else {
-                                    return param;
-                                }
-                            });
+                                    if (key == 'format') {
+                                        format = value;
+                                    }
 
-                            imgUrl = `${m[urlRegexIdx.proto]}//${m[urlRegexIdx.host]}${m[urlRegexIdx.path]}?${params.join('&')}`;
+                                    if (key == 'name') {
+                                        return `${key}=orig`;
+                                    } else {
+                                        return param;
+                                    }
+                                });
+
+                                imgUrl = `${m[urlRegexIdx.proto]}//${m[urlRegexIdx.host]}${m[urlRegexIdx.path]}?${params.join('&')}`;
+                            } else {
+                                alert("Could not match image URL.");
+                                return;
+                            }
                         } else {
-                            alert("Could not match image URL.");
+                            alert("Could not find image. Twitter UI might have changed.");
                             return;
                         }
-                    } else {
-                        alert("Could not find image. Twitter UI might have changed.");
-                        return;
+
+                        imgAs = getFilename(path) + '.' + format;
                     }
 
                     //console.log('dlClick', imgUrl);
                     dl(
                         imgUrl,
-                        getFilename(path) + '.' + format,
+                        imgAs,
                         (working) => {
                             if (working) {
                                 dlAnchor.classList.add('working');
