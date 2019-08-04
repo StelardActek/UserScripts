@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Twitter (Apr 2019) image direct download
 // @namespace    http://stc.com/
-// @version      0.6
+// @version      0.7
 // @description  Adds a direct download button to Twitter images that grabs the :orig file.
 // @author       Stelard Actek
 // @match        https://twitter.com/*
@@ -44,6 +44,7 @@
   top: 0;
   background-color: transparent;
   border: none;
+  pointer-events: all !important;
 }
 
 .dlAnchor:focus {
