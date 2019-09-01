@@ -2,11 +2,10 @@
 // @name        FA Submissions
 // @namespace   http://stc.com/
 // @include     http*://www.furaffinity.net/msg/submissions/*
-// @version     4.1
+// @version     4.2
 // @downloadURL https://github.com/StelardActek/UserScripts/raw/master/FA%20Submissions.user.js
-// @require        http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js
-// @grant          GM_addStyle
-// @grant          GM_getResourceText
+// @require     http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js
+// @require     https://greasemonkey.github.io/gm4-polyfill/gm4-polyfill.js
 // ==/UserScript==
 
 // Anonymous function wrapper
