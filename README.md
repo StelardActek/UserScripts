@@ -14,3 +14,6 @@ Adds a little download button to every twitter image. Click it and directly down
 
 ### [Instagram image direct download.user.js](https://github.com/StelardActek/UserScripts/raw/master/Instagram%20image%20direct%20download.user.js)
 Adds a little download button to every twitter image. Click it and directly download the largest version of that file. No need to open a new tab or anything.
+
+### [FA Submissions.user.js](https://stelardactek.github.io/UserScripts/FA%20Submissions.user.js)
+Adds a 'delete' button per image, and a 'nuke this section' button per section, to the FurAffinity submissions screen. Both will queue the deletes up for 10 seconds before actually doing anything, allowing you to abort by refreshing or leaving the page.
