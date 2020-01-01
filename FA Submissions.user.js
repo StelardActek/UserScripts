@@ -2,7 +2,7 @@
 // @name        FA Submissions
 // @namespace   http://stc.com/
 // @include     http*://www.furaffinity.net/msg/submissions/*
-// @version     4.2
+// @version     4.4
 // @downloadURL https://stelardactek.github.io/UserScripts/FA%20Submissions.user.js
 // @require     http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js
 // @require     https://greasemonkey.github.io/gm4-polyfill/gm4-polyfill.js
@@ -16,7 +16,7 @@
   GM_addStyle('section.gallery { text-align: left }');
   GM_addStyle('section.gallery * { text-align: center }');
   GM_addStyle('button.stc_nuke_section { margin-left: 2em; background-color: #FFAFAF; font-weight: bold; }');
-  GM_addStyle('div.stc_delete_notice { position: fixed; right: 2em; top: 1em; padding: 0.5em 1em; background: lightyellow; z-index: 5000; display: none; }');
+  GM_addStyle('div.stc_delete_notice { position: fixed; left: 50%; top: 1em; transform: translateX(-50%); padding: 0.5em 1em; color: black; background: lightyellow; z-index: 5000000; display: none; }');
   //GM_addStyle('section.gallery figure { width: 194px }')
 
   $('body').prepend('<div class="stc_delete_notice">Delete pending...</div>');
