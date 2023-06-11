@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Twitter (Apr 2019) image direct download
 // @namespace    http://stc.com/
-// @version      0.10
+// @version      0.11
 // @description  Adds a direct download button to Twitter images that grabs the :orig file.
 // @author       Stelard Actek
 // @match        https://twitter.com/*
@@ -91,20 +91,24 @@
     let dl = (url, filename, stateChange) => {
         console.log('Downloading', url, 'as', filename);
         stateChange(true);
-        GM.xmlHttpRequest({
-            method: 'GET',
-            url: url,
-            responseType: 'blob',
-            onload: (res) => {
-                console.log('File loaded, preparing to save...');
-                stateChange(false);
-                saveAs(res.response, filename);
-            },
-            onerror: (res) => {
-                console.log('Problem loading file.', res);
-                stateChange(false);
-            }
-        });
+        try {
+            GM.xmlHttpRequest({
+                method: 'GET',
+                url: url,
+                responseType: 'blob',
+                onload: (res) => {
+                    console.log('File loaded, preparing to save...');
+                    stateChange(false);
+                    saveAs(res.response, filename);
+                },
+                onerror: (res) => {
+                    console.log('Problem loading file.', res);
+                    stateChange(false);
+                }
+            });
+        } catch (err) {
+            console.log('Error executing GM.xmlHttpRequest', err);
+        }
     };
 
     let addTags = () => {
