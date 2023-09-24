@@ -9,6 +9,8 @@ Adds a little download button to every Bluesky image. Click it and directly down
 
 Also renames the file something helpful for looking it up again if you ever need to do so: `BlueskyUsername_PostId_pPicNumber`
 
+**Note!** Obviously since Bluesky is still in development, changes may happen to the web UI that will make this script stop working. I'll try to get it working again if I notice it breaks, of course, but keep that in mind and check your downloads.
+
 This version should work in Greasemonkey on Firefox as well as Tampermonkey on Chrome. It seems that, as of this writing, Tampermonkey has an issue on Firefox with the new Twitter UI which prevents it running any scripts unless you force refresh the page (Ctrl+F5).
 
 ### [Twitter (Apr 2019) image direct download.user.js](https://stelardactek.github.io/UserScripts/Twitter%20(Apr%202019)%20image%20direct%20download.user.js)
