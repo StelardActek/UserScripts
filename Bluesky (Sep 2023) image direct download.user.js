@@ -13,7 +13,6 @@
 // @resource     download24 https://stelardactek.github.io/UserScripts/media/download24.png
 // @require      https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.4/FileSaver.min.js
 // @require      https://greasemonkey.github.io/gm4-polyfill/gm4-polyfill.js
-// @connect      twimg.com
 // ==/UserScript==
 
 (async function() {
