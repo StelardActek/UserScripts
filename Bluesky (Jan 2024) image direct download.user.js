@@ -11,7 +11,7 @@
 // @run-at       document-end
 // @downloadURL  https://stelardactek.github.io/UserScripts/Bluesky%20(Jan%202024)%20image%20direct%20download.user.js
 // @resource     download24 https://stelardactek.github.io/UserScripts/media/download24.png
-// @require      https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js
+// @require      https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.4/FileSaver.min.js
 // @require      https://greasemonkey.github.io/gm4-polyfill/gm4-polyfill.js
 // @connect      twimg.com
 // ==/UserScript==
