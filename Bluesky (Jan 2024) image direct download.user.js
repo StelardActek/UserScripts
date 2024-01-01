@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bluesky (Jan 2024) image direct download
 // @namespace    http://stc.com/
-// @version      0.1
+// @version      0.2
 // @description  Adds a direct download button to Bluesky images that grabs the higher resolution file and renames the file.
 // @author       Stelard Actek
 // @match        https://bsky.app/*
@@ -97,7 +97,7 @@
     let addTags = () => {
         console.log('Adding download tags...');
 
-        let containers = document.querySelectorAll("button > div[data-expoimage=true]:not(.has-dlanchor)");
+        let containers = document.querySelectorAll("div[data-expoimage=true]:not(.has-dlanchor)");
         if (containers && containers.length) {
             let prevCreatorId = '';
             let prevPostId = '';
