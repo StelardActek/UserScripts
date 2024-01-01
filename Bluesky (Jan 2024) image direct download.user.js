@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         Bluesky (Sep 2023) image direct download
+// @name         Bluesky (Jan 2024) image direct download
 // @namespace    http://stc.com/
-// @version      0.2
+// @version      0.1
 // @description  Adds a direct download button to Bluesky images that grabs the higher resolution file and renames the file.
 // @author       Stelard Actek
 // @match        https://bsky.app/*
@@ -9,10 +9,11 @@
 // @grant        GM.xmlHttpRequest
 // @grant        GM_addStyle
 // @run-at       document-end
-// @downloadURL  https://stelardactek.github.io/UserScripts/Bluesky%20(Sep%202023)%20image%20direct%20download.user.js
+// @downloadURL  https://stelardactek.github.io/UserScripts/Bluesky%20(Jan%202024)%20image%20direct%20download.user.js
 // @resource     download24 https://stelardactek.github.io/UserScripts/media/download24.png
-// @require      https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.4/FileSaver.min.js
+// @require      https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js
 // @require      https://greasemonkey.github.io/gm4-polyfill/gm4-polyfill.js
+// @connect      twimg.com
 // ==/UserScript==
 
 (async function() {
@@ -96,7 +97,7 @@
     let addTags = () => {
         console.log('Adding download tags...');
 
-        let containers = document.querySelectorAll("button > .expo-image-container:not(.has-dlanchor)");
+        let containers = document.querySelectorAll("button > div[data-expoimage=true]:not(.has-dlanchor)");
         if (containers && containers.length) {
             let prevCreatorId = '';
             let prevPostId = '';
