@@ -4,7 +4,7 @@ A bunch of UserScripts (Greasemonkey, Tampermonkey, etc) which I wrote or edited
 ## So what do they do?
 I guess I'll describe some of the newer/better ones as I go.
 
-### [Bluesky (Sep 2023) image direct download.user.js](https://stelardactek.github.io/UserScripts/Bluesky%20(Sep%202023)%20image%20direct%20download.user.js)
+### [Bluesky (Jan 2024) image direct download.user.js](https://stelardactek.github.io/UserScripts/Bluesky%20(Jan%202024)%20image%20direct%20download.user.js)
 Adds a little download button to every Bluesky image. Click it and directly download the fullsize version of that file, which should be the largest version available. No need to open a new tab or anything.
 
 Also renames the file something helpful for looking it up again if you ever need to do so: `BlueskyUsername_PostId_pPicNumber`
