@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Bluesky (Jan 2024) image direct download
 // @namespace    http://stc.com/
-// @version      0.2
+// @version      0.3
 // @description  Adds a direct download button to Bluesky images that grabs the higher resolution file and renames the file.
 // @author       Stelard Actek
 // @match        https://bsky.app/*
@@ -13,7 +13,6 @@
 // @resource     download24 https://stelardactek.github.io/UserScripts/media/download24.png
 // @require      https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.4/FileSaver.min.js
 // @require      https://greasemonkey.github.io/gm4-polyfill/gm4-polyfill.js
-// @connect      twimg.com
 // ==/UserScript==
 
 (async function() {
@@ -104,30 +103,35 @@
           	let picCounter = 0;
 
           	for (let container of containers) {
-                //console.log('found container', container);
+                console.log('found container', container);
 
-              	let article = container.closest("div.css-175oi2r[role=link][data-testid]");
               	let img = container.querySelector("img");
               	let imgSrc = '';
                 let creatorId = '';
                 let postId = '';
               	let picId = 0;
 
-              	if (img && article) {
-                  	//console.log('found article', article, 'and img', img);
+              	if (img) {
+                  	console.log('found img', img);
 
                   	let postMatch = document.location.href.match(postRegex);
                   	if (postMatch) {
+                      	console.log('page match, article not needed');
                         creatorId = postMatch[1];
                       	postId = postMatch[2];
                     } else {
-                      	let alink = article.querySelector('a.css-146c3p1.r-1loqt21[role=link][href^="/profile"][href*="/post/"]');
-                      	if (alink && alink.href) {
-                          	postMatch = alink.href.match(postRegex);
-                          
-                          	if (postMatch) {
-                              	creatorId = postMatch[1];
-                              	postId = postMatch[2];
+                      	let article = container.closest("div.css-175oi2r[role=link][data-testid]");
+                      
+                      	if (article) {
+                          	console.log('found article', article);
+                            let alink = article.querySelector('a.css-146c3p1.r-1loqt21[role=link][href^="/profile"][href*="/post/"]');
+                            if (alink && alink.href) {
+                                postMatch = alink.href.match(postRegex);
+
+                                if (postMatch) {
+                                    creatorId = postMatch[1];
+                                    postId = postMatch[2];
+                                }
                             }
                         }
                     }
@@ -136,7 +140,7 @@
                       	imgSrc = img.src.replace('/img/feed_thumbnail/', '/img/feed_fullsize/');
                     }
                   
-                  	//console.log('creatorId', creatorId, 'postId', postId, 'src', imgSrc);
+                  	console.log('creatorId', creatorId, 'postId', postId, 'src', imgSrc);
                 }
               
               	if (prevCreatorId == creatorId && prevPostId == postId) {
@@ -154,7 +158,7 @@
                     dlAnchor.className = 'dlAnchor';
                     dlAnchor.title = 'Download this image...';
                     dlAnchor.addEventListener('click', (ev) => {
-                      	//console.log('click', 'creatorId', creatorId, 'postId', postId, 'src', imgSrc, 'picId', picId);
+                      	console.log('click', 'creatorId', creatorId, 'postId', postId, 'src', imgSrc, 'picId', picId);
                       
                       	dl(
                             imgSrc,
