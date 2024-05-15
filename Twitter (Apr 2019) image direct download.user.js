@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name         Twitter (Apr 2019) image direct download
 // @namespace    http://stc.com/
-// @version      0.11
+// @version      0.12
 // @description  Adds a direct download button to Twitter images that grabs the :orig file.
 // @author       Stelard Actek
 // @match        https://twitter.com/*
 // @match        https://mobile.twitter.com/*
+// @match        https://x.com/*
 // @grant        GM.getResourceUrl
 // @grant        GM.xmlHttpRequest
 // @grant        GM_addStyle
