@@ -4,6 +4,9 @@ A bunch of UserScripts (Greasemonkey, Tampermonkey, etc) which I wrote or edited
 ## So what do they do?
 I guess I'll describe some of the newer/better ones as I go.
 
+### [Pixiv image source link](https://stelardactek.github.io/UserScripts/PixivImageSourceLink.user.js)
+Ever get sent an image that is clearly from Pixiv, but not the full size or you just want to look up the artist? This script should detect when such an image is being viewed and add a link to the original.
+
 ### [Bluesky (Jan 2024) image direct download.user.js](https://stelardactek.github.io/UserScripts/Bluesky%20(Jan%202024)%20image%20direct%20download.user.js)
 Adds a little download button to every Bluesky image. Click it and directly download the fullsize version of that file, which should be the largest version available. No need to open a new tab or anything.
 
