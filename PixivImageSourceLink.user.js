@@ -3,6 +3,7 @@
 // @version  		1
 // @grant    		none
 // @include			/\d+_p\d+_master/
+// @downloadURL https://stelardactek.github.io/UserScripts/PixivImageSourceLink.user.js
 // ==/UserScript==
 
 (function () {
