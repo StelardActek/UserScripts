@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name     		Pixiv Image Source Link
-// @version  		1
+// @version  		2
 // @grant    		none
 // @include			/\d+_p\d+/
 // @downloadURL https://stelardactek.github.io/UserScripts/PixivImageSourceLink.user.js
@@ -50,7 +50,7 @@
     }
   `);
   
-  let pixivIdRegex = /(\d+)_p\d+/;
+  let pixivIdRegex = /(\d+)(-[0-9a-f]+)?_p\d+/;
   let pixivIdMatches = pixivIdRegex.exec(window.location);
   
   if (pixivIdMatches.length > 1) {
