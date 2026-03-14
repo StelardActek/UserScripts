@@ -11,8 +11,8 @@
 // @grant        GM.xmlHttpRequest
 // @grant        GM_addStyle
 // @run-at       document-end
-// @downloadURL  https://stelardactek.github.io/UserScripts/Twitter%20(Mar%202026)%20image%20direct%20download.user.js
-// @resource     download24 https://stelardactek.github.io/UserScripts/media/download24.png
+// @downloadURL  https://github.com/StelardActek/UserScripts/raw/refs/heads/master/Twitter%20(Mar%202026)%20image%20direct%20download.user.js
+// @resource     download24 https://github.com/StelardActek/UserScripts/raw/refs/heads/master/media/download24.png
 // @require      https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js
 // @require      https://greasemonkey.github.io/gm4-polyfill/gm4-polyfill.js
 // @connect      twimg.com
